@@ -865,6 +865,11 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
+double GetNextBlockValue() {
+	return (double)GetBlockValue( nBestHeight + 1, 0 ) / (double)COIN;
+}
+
+
 static const int64 nTargetTimespan =  8 * 60 * 60; // sexcoin: 8 hour
 static const int64 nTargetSpacing = 1 * 60; // sexcoin: 15 second
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
